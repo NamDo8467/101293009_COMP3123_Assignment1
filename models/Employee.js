@@ -11,7 +11,8 @@ const EmployeeSchema = mongoose.Schema({
 	},
 	email: {
 		type: String,
-		unique: true
+		unique: true,
+		required: true
 	},
 	gender: {
 		type: String
@@ -20,6 +21,11 @@ const EmployeeSchema = mongoose.Schema({
 		type: Number,
 		required: true
 	}
+})
+
+EmployeeSchema.pre("findOneAndUpdate", function (next) {
+	this.options.runValidators = true
+	next()
 })
 const EmployeeModel = mongoose.model("Employee", EmployeeSchema, "employees")
 module.exports.Employee = EmployeeModel
