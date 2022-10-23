@@ -35,7 +35,7 @@ route.post("/login", async (req, res) => {
 	} catch (error) {
 		response = {
 			status: false,
-			message: "Invalid Username and password"
+			message: "Invalid Username or password"
 		}
 		res.status(400)
 	}
