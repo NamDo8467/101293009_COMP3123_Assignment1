@@ -89,7 +89,7 @@ route
 	})
 
 route.delete("/employees", async (req, res) => {
-	let id = req.query.eid
+	let id = req.body.id
 	let response = {}
 	try {
 		const employee = await Employee.findByIdAndDelete(id)
