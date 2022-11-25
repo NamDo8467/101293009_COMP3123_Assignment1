@@ -12,11 +12,11 @@ const URL = "http://localhost:3000"
 app.set("trust proxy", 1)
 app.use((req, res, next) => {
 	res.setHeader("Access-Control-Allow-Origin", URL)
-	res.setHeader("Access-Control-Allow-Credentials", true)
-	res.setHeader("Access-Control-Allow-Headers", "Authorization")
+	// res.setHeader("Access-Control-Allow-Credentials", true)
+	// res.setHeader("Access-Control-Allow-Headers", "Authorization")
 	res.setHeader(
 		"Access-Control-Allow-Headers",
-		"Origin,X-Requested-With,X-HTTP-Method-Override,,Content-Type,Accept,content-type,application/json"
+		"Origin,X-Requested-With,X-HTTP-Method-Override,Content-Type,Accept,content-type,application/json,Authorization"
 	)
 	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS")
 	next()
