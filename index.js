@@ -13,6 +13,7 @@ app.set("trust proxy", 1)
 app.use((req, res, next) => {
 	res.setHeader("Access-Control-Allow-Origin", URL)
 	res.setHeader("Access-Control-Allow-Credentials", true)
+	res.setHeader("Access-Control-Allow-Headers", "Authorization")
 	res.setHeader(
 		"Access-Control-Allow-Headers",
 		"Origin,X-Requested-With,X-HTTP-Method-Override,,Content-Type,Accept,content-type,application/json"
