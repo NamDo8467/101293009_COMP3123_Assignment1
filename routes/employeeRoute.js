@@ -1,6 +1,7 @@
 const express = require("express")
 const route = express.Router()
 const { Employee } = require("../models/Employee")
+let mongoose = require("mongoose")
 
 const handleError = (error, response) => {
 	response.status = "false"
@@ -89,7 +90,7 @@ route
 	})
 
 route.delete("/employees", async (req, res) => {
-	let id = req.body.id
+	let id = mongoose.Types.ObjectId(req.body.id)
 	let response = {}
 	try {
 		const employee = await Employee.findByIdAndDelete(id)
