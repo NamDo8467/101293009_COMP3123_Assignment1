@@ -1,14 +1,29 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const app = express()
-const PORT = 3000 || process.env.PORT
+const PORT = 5000 || process.env.PORT
 const { userRouter } = require("./routes/userRoute")
 const { employeeRouter } = require("./routes/employeeRoute")
-const URI = "mongodb+srv://namdo:namdo@cluster0.qftfl.mongodb.net/comp3123_assignment1?retryWrites=true&w=majority"
+
+const URL = "http://localhost:3030"  
+
+app.use(cors({ origin: URL, optionsSuccessStatus: 200, credentials: true }))
+
+app.set("trust proxy", 1)
+app.use((req, res, next) => {
+	res.setHeader("Access-Control-Allow-Origin", URL)
+	res.setHeader("Access-Control-Allow-Credentials", true)
+	res.header(
+		"Access-Control-Allow-Headers",
+		"Origin,X-Requested-With,X-HTTP-Method-Override,,Content-Type,Accept,content-type,application/json"
+	)
+	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS")
+	next()
+})
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-mongoose.connect(URI, { useNewUrlParser: true.valueOf(), useUnifiedTopology: true }, err => {
+mongoose.connect(process.env.DB_CONNECTION_LINK, { useNewUrlParser: true.valueOf(), useUnifiedTopology: true }, err => {
 	if (err) {
 		console.log(err);
 	}
