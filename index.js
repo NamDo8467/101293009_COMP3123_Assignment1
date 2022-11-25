@@ -5,7 +5,7 @@ const PORT = 5000 || process.env.PORT
 const { userRouter } = require("./routes/userRoute")
 const { employeeRouter } = require("./routes/employeeRoute")
 
-const URL = "http://localhost:3030"  
+const URL = "http://localhost:3000"  
 
 // app.use(cors({ origin: URL, optionsSuccessStatus: 200, credentials: true }))
 
