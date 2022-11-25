@@ -4,11 +4,12 @@ const app = express()
 const PORT = 5000 || process.env.PORT
 const { userRouter } = require("./routes/userRoute")
 const { employeeRouter } = require("./routes/employeeRoute")
+const cors = require("cors")
 
 const URL = "http://localhost:3000"
 
 // app.use(cors({ origin: URL, optionsSuccessStatus: 200, credentials: true }))
-
+app.options("*", cors())
 app.set("trust proxy", 1)
 app.use((req, res, next) => {
 	res.setHeader("Access-Control-Allow-Origin", URL)
@@ -19,7 +20,7 @@ app.use((req, res, next) => {
 		"Origin,X-Requested-With,X-HTTP-Method-Override,Content-Type,Accept,content-type,application/json"
 	)
 	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS")
-	res.status(200)
+	
 	next()
 })
 app.use(express.urlencoded({ extended: true }))
