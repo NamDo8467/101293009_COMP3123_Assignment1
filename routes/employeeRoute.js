@@ -8,7 +8,7 @@ const handleError = (error, response) => {
 		response.message = "Email already exists"
 	} else if (error.errors == undefined) {
 		if (error.name === "CastError") {
-			response.message = "Employee Id is incorrect"
+			response.message = "Salary must be a number" // This could be either Employee ID is not correct or Salary must be a number
 		}
 	} else if (error.errors.first_name) {
 		response.message = "First name can not be empty"
