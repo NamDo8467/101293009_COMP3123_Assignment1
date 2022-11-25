@@ -16,9 +16,10 @@ app.use((req, res, next) => {
 	// res.setHeader("Access-Control-Allow-Headers", "Authorization")
 	res.setHeader(
 		"Access-Control-Allow-Headers",
-		"Origin,X-Requested-With,X-HTTP-Method-Override,Content-Type,Accept,content-type,application/json,Authorization"
+		"Origin,X-Requested-With,X-HTTP-Method-Override,Content-Type,Accept,content-type,application/json"
 	)
 	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS")
+	res.status(200)
 	next()
 })
 app.use(express.urlencoded({ extended: true }))
