@@ -9,7 +9,7 @@ const cors = require("cors")
 const URL = "http://localhost:3000"
 
 app.use(cors({ origin: URL, optionsSuccessStatus: 200, credentials: true }))
-// app.options("*", cors())
+app.options("*", cors())
 app.set("trust proxy", 1)
 // app.use((req, res, next) => {
 // 	res.setHeader("Access-Control-Allow-Origin", URL)
