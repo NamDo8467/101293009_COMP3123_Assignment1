@@ -7,7 +7,7 @@ const { employeeRouter } = require("./routes/employeeRoute")
 
 const URL = "http://localhost:3030"  
 
-app.use(cors({ origin: URL, optionsSuccessStatus: 200, credentials: true }))
+// app.use(cors({ origin: URL, optionsSuccessStatus: 200, credentials: true }))
 
 app.set("trust proxy", 1)
 app.use((req, res, next) => {
