@@ -94,7 +94,7 @@ route.delete("/employees", async (req, res) => {
 	let response = {}
 	try {
 		const employee = await Employee.findByIdAndDelete(id)
-		response = employee
+		response = { id }
 
 		res.status(204)
 	} catch (error) {
