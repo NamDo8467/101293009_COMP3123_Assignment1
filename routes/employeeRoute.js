@@ -89,7 +89,7 @@ route
 		res.send(response)
 	})
 
-route.post("/employees", async (req, res) => {
+route.post("/employees/delete", async (req, res) => {
 	let id = req.body.id
 	let response = {}
 	try {
