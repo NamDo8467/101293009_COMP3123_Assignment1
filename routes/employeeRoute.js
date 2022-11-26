@@ -90,7 +90,7 @@ route
 	})
 
 route.delete("/employees", async (req, res) => {
-	let id = mongoose.Types.ObjectId(req.body.id)
+	let id = req.body.id
 	let response = {}
 	try {
 		const employee = await Employee.findByIdAndDelete(id)
