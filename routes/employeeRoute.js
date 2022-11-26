@@ -95,10 +95,10 @@ route.delete("/employees", async (req, res) => {
 	try {
 		const employee = await Employee.findByIdAndDelete(id, (err, doc) => {
 			if (err) {
-				response = err
+				response["e"] = err
 			}
 			if (!doc) {
-				response = { error: 'Data not found' };
+				response["er"] = "Data not found"
 			}
 		})
 		// response = { id }
@@ -106,7 +106,7 @@ route.delete("/employees", async (req, res) => {
 		res.status(204)
 	} catch (error) {
 		handleError(error, response)
-		response['error'] = error
+		response["error"] = error
 		res.status(400)
 	}
 	res.send(response)
