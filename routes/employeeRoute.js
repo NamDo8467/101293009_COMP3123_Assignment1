@@ -106,6 +106,7 @@ route.delete("/employees", async (req, res) => {
 		res.status(204)
 	} catch (error) {
 		handleError(error, response)
+		response['error'] = error
 		res.status(400)
 	}
 	res.send(response)
