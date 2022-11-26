@@ -11,18 +11,18 @@ const URL = "http://localhost:3000"
 app.use(cors({ origin: URL, optionsSuccessStatus: 200, credentials: true }))
 app.options("*", cors())
 app.set("trust proxy", 1)
-app.use((req, res, next) => {
-	res.setHeader("Access-Control-Allow-Origin", URL)
-	// res.setHeader("Access-Control-Allow-Credentials", true)
-	// res.setHeader("Access-Control-Allow-Headers", "Authorization")
-	res.setHeader(
-		"Access-Control-Allow-Headers",
-		"Origin,X-Requested-With,X-HTTP-Method-Override,Content-Type,Accept,content-type,application/json"
-	)
-	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS")
+// app.use((req, res, next) => {
+// 	res.setHeader("Access-Control-Allow-Origin", URL)
+// 	// res.setHeader("Access-Control-Allow-Credentials", true)
+// 	// res.setHeader("Access-Control-Allow-Headers", "Authorization")
+// 	res.setHeader(
+// 		"Access-Control-Allow-Headers",
+// 		"Origin,X-Requested-With,X-HTTP-Method-Override,Content-Type,Accept,content-type,application/json"
+// 	)
+// 	res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS")
 	
-	next()
-})
+// 	next()
+// })
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
